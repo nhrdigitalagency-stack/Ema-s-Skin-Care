@@ -1,0 +1,62 @@
+import type { PublicBootstrapPayload } from '../types/ecommerce';
+import {
+  DEFAULT_SETTINGS,
+  INITIAL_ARTICLES,
+  INITIAL_FAQS,
+  INITIAL_INGREDIENTS,
+  INITIAL_OUTLETS,
+  INITIAL_PRODUCTS,
+  INITIAL_ROUTINES,
+} from '../../server/data/seed.ts';
+
+export const FALLBACK_BOOTSTRAP: PublicBootstrapPayload = {
+  settings: DEFAULT_SETTINGS,
+  products: INITIAL_PRODUCTS.filter((p) => p.status !== 'archived'),
+  routines: INITIAL_ROUTINES.filter((r) => r.published),
+  ingredients: INITIAL_INGREDIENTS.filter((i) => i.published),
+  articles: INITIAL_ARTICLES.filter((a) => a.published),
+  outlets: INITIAL_OUTLETS.filter((o) => o.published),
+  faqs: INITIAL_FAQS.filter((f) => f.published),
+  deliveryZones: [
+    {
+      id: 'zone-douala-centre',
+      city: 'Douala',
+      label: { fr: 'Douala Centre & Makepe', en: 'Douala Central & Makepe' },
+      feeKnown: true,
+      feeXaf: 1500,
+      minOrderXaf: 0,
+      estimatedDelay: { fr: '1 jour ouvrable', en: '1 business day' },
+      pickupAvailable: true,
+      active: true,
+    },
+    {
+      id: 'zone-douala-peripherie',
+      city: 'Douala',
+      label: { fr: 'Douala Périphérie', en: 'Douala Outer Districts' },
+      feeKnown: true,
+      feeXaf: 2500,
+      minOrderXaf: 0,
+      estimatedDelay: { fr: '1 à 2 jours', en: '1 to 2 days' },
+      pickupAvailable: true,
+      active: true,
+    },
+    {
+      id: 'zone-yaounde',
+      city: 'Yaoundé',
+      label: { fr: 'Yaoundé & autres villes', en: 'Yaoundé & other cities' },
+      feeKnown: true,
+      feeXaf: 4000,
+      minOrderXaf: 0,
+      estimatedDelay: { fr: '2 à 4 jours', en: '2 to 4 days' },
+      pickupAvailable: false,
+      active: true,
+    },
+  ],
+  reviews: [],
+  testimonials: [],
+  session: {
+    authenticated: false,
+    needsAdminBootstrap: false,
+    user: null,
+  },
+};

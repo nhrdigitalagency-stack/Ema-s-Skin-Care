@@ -1,0 +1,6 @@
+{
+  "name": "Emaüs Skin Care — Les Laboratoires Emaüs",
+  "description": "Boutique officielle et espace éditorial des Laboratoires Emaüs Skin Care au Cameroun. Soins du visage, du corps et des cheveux, routines validées et suivi de commande.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
